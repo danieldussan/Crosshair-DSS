@@ -74,16 +74,15 @@ class CrosshairApp(QLabel):
         
         # Configurar el icono de la bandeja
         self.setup_tray_icon()
-        
-        # Posicionar en el centro
-        self.move_to_center()
 
     def load_config(self):
         default_config = {
             "color": "#FF0000",
             "size": 16,
             "style": "cruz",
-            "thickness": 1
+            "thickness": 1,
+            "x": -1,  # Valor por defecto para centrar si no hay posición guardada
+            "y": -1
         }
         
         try:
@@ -94,45 +93,63 @@ class CrosshairApp(QLabel):
                     self.crosshair_size = config.get("size", default_config["size"])
                     self.crosshair_style = config.get("style", default_config["style"])
                     self.line_thickness = config.get("thickness", default_config["thickness"])
+                    
+                    x = config.get("x", default_config["x"])
+                    y = config.get("y", default_config["y"])
+                    self.setFixedSize(self.crosshair_size, self.crosshair_size)
+                    
+                    # Si la posición guardada es válida, mover la mira allí
+                    if x >= 0 and y >= 0:
+                        self.move(x, y)
+                    else:
+                        self.move_to_center()
             else:
                 self.color = QColor(default_config["color"])
                 self.crosshair_size = default_config["size"]
                 self.crosshair_style = default_config["style"]
                 self.line_thickness = default_config["thickness"]
+                self.move_to_center()
         except:
             self.color = QColor(default_config["color"])
             self.crosshair_size = default_config["size"]
             self.crosshair_style = default_config["style"]
             self.line_thickness = default_config["thickness"]
-        
-        self.setFixedSize(self.crosshair_size, self.crosshair_size)
-        self.move_to_center()
-        self.is_visible = True
+            self.move_to_center()
+
 
     def save_config(self):
         if not os.path.exists(self.config_folder):
             os.makedirs(self.config_folder)
+        
+        position = self.pos()
+        
         config = {
             "color": self.color.name(),
             "size": self.crosshair_size,
             "style": self.crosshair_style,
-            "thickness": self.line_thickness
+            "thickness": self.line_thickness,
+            "x": position.x(),
+            "y": position.y()
         }
+        
         with open(self.config_file, "w") as f:
             json.dump(config, f)
+
+    def moveEvent(self, event):
+        self.save_config()
 
     def setup_tray_icon(self):
         self.tray_icon = QSystemTrayIcon(self)
         
         # Usar resource_path para obtener la ruta correcta del icono
-        icon_path = resource_path("public/icono-bandeja.png")
+        icon_path = resource_path("icono.ico")
         if not os.path.exists(icon_path):
             # Fallback a un icono incorporado si no se encuentra el archivo
             self.tray_icon.setIcon(QIcon(self.style().standardIcon(QStyle.SP_ComputerIcon)))
         else:
             self.tray_icon.setIcon(QIcon(icon_path))
         
-        self.tray_icon.setToolTip('Crosshair App')
+        self.tray_icon.setToolTip('Crosshair DSS')
         
         menu = QMenu()
         
@@ -278,11 +295,11 @@ class CrosshairApp(QLabel):
 
 def main():
     app = QApplication(sys.argv)
-    app.setApplicationName("Crosshair App")
+    app.setApplicationName("Crosshair DSS")
     app.setQuitOnLastWindowClosed(False)
     
     # Usar resource_path para el ícono de la aplicación
-    icon_path = resource_path("public/icono.ico")
+    icon_path = resource_path("icono.ico")
     if os.path.exists(icon_path):
         app.setWindowIcon(QIcon(icon_path))
     

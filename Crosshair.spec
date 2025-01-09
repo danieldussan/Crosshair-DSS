@@ -6,7 +6,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('icono.ico', '.'), ('icono-bandeja.png', '.')],  # Incluir los recursos
+    datas=[('icono.ico', '.'), ('icono.ico', '.')],  # Incluir los recursos
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -27,7 +27,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='Crosshair',
+    name='Crosshair DSS',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

@@ -4,12 +4,12 @@
 
 ## ✨ Características principales
 
--  **Centrado automático**: La mira puede colocarse automáticamente en el centro de la pantalla con un solo clic.
--  **Posición personalizada**: Define las coordenadas (X, Y) para mover la mira a cualquier lugar dentro de la pantalla. La aplicación se asegura de que las coordenadas estén dentro de los límites de la pantalla.
--  **Estilos de mira**: Elige entre diferentes estilos, como la clásica **cruz (+)** o el simple **punto**.
--  **Cambio de color**: Cambia el color de la mira para que se adapte a tus preferencias o necesidades visuales.
--  **Configuración persistente**: Las preferencias de la mira (tamaño, color, estilo y posición) se guardan automáticamente para que no tengas que reconfigurarla cada vez que inicies la aplicación.
--  **Bandeja del sistema**: Acceso rápido a las opciones de configuración y visibilidad desde el icono en la bandeja del sistema.
+- **Centrado automático**: La mira puede colocarse automáticamente en el centro de la pantalla con un solo clic.
+- **Posición personalizada**: Define las coordenadas (X, Y) para mover la mira a cualquier lugar dentro de la pantalla. La aplicación se asegura de que las coordenadas estén dentro de los límites de la pantalla.
+- **Estilos de mira**: Elige entre diferentes estilos, como la clásica **cruz (+)** o el simple **punto**.
+- **Cambio de color**: Cambia el color de la mira para que se adapte a tus preferencias o necesidades visuales.
+- **Configuración persistente**: Las preferencias de la mira (tamaño, color, estilo y posición) se guardan automáticamente para que no tengas que reconfigurarla cada vez que inicies la aplicación.
+- **Bandeja del sistema**: Acceso rápido a las opciones de configuración y visibilidad desde el icono en la bandeja del sistema.
 
 ## 🛠️ ¿Cómo funciona?
 
@@ -25,7 +25,7 @@ Una vez que inicies la aplicación, un **ícono** aparecerá en la bandeja del s
 
 ## 💻 Requisitos
 
-La aplicación está diseñada para ser **sencilla** y fácil de usar sin requerir conocimientos técnicos previos. Solo necesitas tener un sistema operativo que soporte aplicaciones con iconos en la bandeja del sistema:
+La aplicación está diseñada para ser **sencilla** y fácil de usar sin requerir conocimientos técnicos previos. Solo necesitas tener un sistema operativo que soporte aplicaciones con iconos en la bandeja del sistema.
 
 ## 📥 Instalación
 
@@ -47,6 +47,10 @@ La aplicación está diseñada para ser **sencilla** y fácil de usar sin requer
 ## 📝 Licencia
 
 Este proyecto está bajo la **Licencia MIT**. Puedes ver más detalles en el archivo [LICENSE](LICENSE).
+
+## 📌 Crédito del ícono
+
+El ícono del archivo fue tomado de <a href="https://www.flaticon.es/iconos-gratis/navegacion" title="navegación iconos">Navegación iconos creados por Kharisma - Flaticon</a>.
 
 ---
 
